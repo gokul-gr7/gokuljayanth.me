@@ -69,7 +69,122 @@ nav{
       align-items: center;
       margin-top: 50px;
       margin-right: 50px;
-      color:black;
+      color:rgb(255, 0, 0);
       
       
   }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.wrapper {
+    height: 70vh;
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+#reset {
+    height: 40px;
+    width: 100px;
+    font-size: 22px;
+    color: #fff;
+    background: rgb(223, 56, 56);
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+#playArea {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.block {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border: 2px solid rgb(14, 14, 14);
+}
+
+.block input {
+    visibility: hidden;
+}
+
+.block label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.block label.checked {
+    z-index: 4;
+    pointer-events: none;
+    display: block !important;
+}
+.block label.checked.player1::after {
+    position: absolute;
+    content: ' ';
+    width: 60px;
+    height: 7px;
+    background: rgb(20, 143, 214);
+    border-radius: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.block label.checked.player1::before {
+    position: absolute;
+    content: ' ';
+    width: 60px;
+    height: 7px;
+    background: rgb(20, 143, 214);
+    border-radius: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.block label.checked.player2::after {
+    position: absolute;
+    content: ' ';
+    border: 6px solid rgb(224, 22, 157);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#playArea .block .player2 {
+    display: none;
+}
+
+#playArea.two .block .player1 {
+    display: none;
+}
+
+#playArea.two .block .player2 {
+    display: block;
+}
